@@ -1,0 +1,537 @@
+*{
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+div.chatBtns{
+    display: flex;
+    padding: 6px;
+    gap: 5px;
+    color: white;
+}
+
+body{
+    background-color: rgb(247, 246, 245);
+    overflow: hidden;
+}
+
+span.errText{
+    font-size: .8rem;
+    color: rgb(215, 8, 8);
+
+}
+
+a{
+    text-decoration: none;
+    color:rgb(38, 98, 154)
+}
+
+header{
+    background-color: rgb(38, 98, 154);
+    height: 8vh;
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    color: white;
+    width: 100%;
+}
+
+h1{
+    text-align: center;
+}
+
+form{
+    width: 100%;
+    margin: auto;
+    text-align: center;
+}
+
+button[type='submit']{
+    background-color: rgb(38, 98, 154);
+    margin: 1rem 0 0 0;
+    border: none;
+    padding: 5px;
+    width: 100%;
+    color: white;
+    cursor: pointer;
+    box-shadow: 1px 1px rgb(24, 61, 97);
+}
+
+div.otherOptions{
+    margin-top: 1rem;
+    font-size: .8rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    color: rgb(38, 98, 154);
+    text-align: center;
+}
+
+input[type='text'], input[type='password'], input[type='email']{
+    border: none;
+    border-bottom: 1px solid rgb(179, 179, 179);
+    background-color: rgb(247, 246, 245);
+    width: 100%;
+    margin: .5rem 0;
+}
+
+input[type='text']:focus, input[type='password']:focus, input[type='email']{
+    outline: none;
+}
+
+div.wrapper{
+    width: 80%;
+    margin: 1rem auto;
+    padding: 2rem;
+}
+
+div.messageContainer{
+    margin: auto;
+    width: 50%;   
+}
+
+div.button{
+    cursor: pointer;
+    box-shadow: 2px 2px rgb(24, 61, 97);
+    margin: 0 1rem;
+    border-radius: 3px;
+    padding: 5px;
+    background-color: rgb(38, 98, 154);
+    width: fit-content;
+}
+
+div.button a{
+    color: white;
+}
+
+div.messageContainer p{
+    padding: 1rem;
+}
+
+div.messageContainer h2{
+    background-color: rgb(38, 98, 154);
+    padding: 1rem;
+    color: white;
+    border-radius: 5px;
+}
+
+div.homeWrapper{
+    display: grid;
+    grid-template-columns: 0 90vw;
+    height: 92vh;
+    transition: 300ms;
+}
+
+li{
+    display: flex;
+    align-items: center;
+    background-color: rgb(211, 211, 211);
+    padding: 5px;
+    border-bottom: 1px solid gray;
+}
+
+li img{
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    margin: 0 1rem 0 0;
+}
+
+div.contactContainer{
+    overflow-y: scroll;
+    
+}
+
+div.contactArea{
+    background-color: rgb(211, 211, 211);
+    height: 92vh;
+}
+
+div.contactArea input{
+    margin: 0;
+    display: block;
+    padding: 5px;
+
+    
+}
+
+div.addPerson{
+    background-color: rgb(197, 197, 197);
+    color: black;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+i{
+    font-size: .7rem;
+}
+
+
+
+div.chatArea{
+    padding: 0;
+    background-color: rgb(196, 194, 194);
+    position: relative;
+    height: 92vh;
+}
+
+div.currentTalk{
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(67, 67, 67);
+    width: 100%;
+    padding: .5rem 1rem;
+    color: white;
+}
+
+div.currentTalk img{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin: 0 1rem;
+}
+
+div.toChat{
+    background-color: rgb(67, 67, 67);
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: grid;
+    justify-content: space-between;
+    transition: all 300ms;
+    align-items: center;
+    padding: 5px;
+}
+
+
+div.toChat div{
+    overflow: hidden;
+}
+
+
+
+
+div.toChat textarea{
+    width: 100%;
+    border-radius: 10px;
+    height: 25px;
+    padding: 5px;
+    vertical-align: center;
+    outline: none;
+    box-shadow: none;
+    border: none;
+    resize: none;
+    overflow:auto;
+    z-index: 5;
+    transition: all 300ms;
+}
+
+div.closeText{
+    background-color: rgb(67, 67, 67);
+    outline: none;
+    border: none;
+    color: white;
+    padding: 6px;
+}
+
+
+
+button.textAddBtn{
+    color: white;
+    background-color: rgb(67, 67, 67);
+    border: none;
+}
+
+
+div.leftBtns{
+    display: grid;
+    grid-template-columns: 0fr 1fr;
+    justify-content: space-between;
+    position: relative;
+    transition: width 250ms;
+    transition-timing-function: ease-in-out;
+}
+
+div.rightBtns{
+    display: grid;
+    grid-template-columns: 1fr max-content;
+    gap: 5px;
+    align-items: center;
+    transition: width 300ms;
+    transition-timing-function: ease-in-out;
+}
+
+
+div.currentProfile{
+    display: flex;
+    align-items: center;
+}
+
+div.currentLeft{
+    display: flex;
+    align-items: center;
+}
+
+div.textContainer{
+    background-color: aliceblue;
+    width: max-content;
+    padding: 1px 5px;
+    border-radius: 25px;
+}
+
+div.textContainer.me{
+    background-color: rgb(41, 69, 124);
+    color: white;
+}
+
+div.textWrapper:not(:first-child){
+    margin: 1rem 0;
+}
+
+div.textWrapper.me{
+    display: flex;
+    justify-content: flex-end;
+}
+
+div.messageAreaContainer{
+    height: 70%;
+    padding: 1rem 1rem 0 1rem;
+    overflow-y: scroll;
+    scrollbar-gutter:stable;
+}
+
+div.overflow{
+    height: 100%;
+    overflow-y: auto;
+}
+
+div.myModal{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    transform-origin: top;
+    transition: transform .5s ease-in-out;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0,0,0,0.4);
+}
+
+div.modal-content-wrapper{
+    background-color: #fefefe;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    height: 50%;
+    position: relative;
+}
+
+div.modaloptions{
+    display: flex;
+    justify-content: center;
+    gap: 10%;
+}
+
+div.modaloptions div{
+    background-color: #cfcccc;
+    padding: 0 5px;
+    border-radius: 20px;
+}
+
+div.modaloptions div.selected{
+    background-color: rgb(38, 98, 154);
+    color: white;
+}
+
+
+
+div.closeModal{
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin: 10px;
+}
+
+
+
+
+
+
+
+div.userResult{
+    height: 50%;
+    overflow-y: auto;
+}
+
+div.noUserDisplay{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+
+}
+
+li.current{
+    background-color: rgb(129,129,129);
+}
+
+div.chatAreaNoChat{
+    width: max-content;
+    margin: 20% auto;
+    text-align: center;
+}
+
+div.currentTalkNoChat{
+    margin: 0 1rem;
+}
+
+
+
+div.modalOptions{
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+div.modalOptions div{
+    background-color: #e2e2e2;
+    padding: 2px 4px;
+    border-radius: 10px;
+}
+
+
+div.modalsearch form{
+    width: 100%;
+}
+
+div.modalsearch input{
+    background-color: white;
+    font-size: 1rem;
+}
+
+
+div.modaloption{
+    width: 100%;
+    height: 100%;
+    padding: 1rem;
+    position: relative;
+
+}
+
+div.modalBtns{
+    display: flex;
+    gap: 10px;
+    position: absolute;
+    bottom: 10px;
+    align-items: baseline;
+}
+
+div.modalBtns button[type='button']{
+    height: fit-content;
+    border: none;
+    padding: 5px;
+    box-shadow: 1px 1px black;
+    cursor: pointer;
+}
+
+ul{
+    list-style-type: none;
+}
+
+div.modalOptions  div.current{
+    background-color: rgb(129,129,129);
+}
+
+div.friend-request-btns{
+    display: flex;
+    position: absolute;
+    right: 0;
+}
+
+div.friend-request-btns div{
+    margin: 0 5px;
+    padding: 0 5px;
+}
+
+div.modalOptionContainer{
+    display: grid;
+    grid-template-columns: 1fr 0;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+div.friendRequestContainer.modalcontainer{
+    width: 100%;
+    position: relative;
+}
+
+ul.friendRequestList{
+    height: 80%;
+    overflow: auto;
+    width: 100%;
+    position: absolute;
+}
+
+li.friendRequestContainer{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 0;
+    justify-content: space-between;
+}
+
+div.friendRequest-user{
+    display: flex;
+    align-items: center;
+}
+
+div.friendRequest-user img{
+    margin: 0;
+}
+
+div.friendRequest-btns{
+    margin-right: 15px;
+}
+
+div.friendRequest-btns button{
+    margin: 0 5px;
+    color: white;
+    outline: none;
+    border: none;
+    padding: 2px;
+    box-shadow: 1px 1px black;
+}
+
+button.add{
+    background-color: green;
+}
+
+button.reject{
+    background-color: red;
+}
+
+button[type="submit"]:disabled{
+    background-color: rgba(38, 98, 154, 0.5);
+    box-shadow: 1px 1px rgba(24, 61, 97, 0.5);
+}
+
+
+@media screen and (min-width: 550px ) {
+
+    form{
+        width: 50%;
+    }
+
+}
