@@ -12,6 +12,30 @@ div.chatBtns{
     color: white;
 }
 
+.noPageWrapper{
+    width: 50%;
+    margin: auto;
+    margin-top: 3rem;
+}
+
+.noPageWrapper p{
+    margin-top: 1rem;
+}
+
+.noPageWrapper a{
+    background-color: rgb(38, 98, 154);
+    color: white;
+    padding: 8px 10px;
+    display: block;
+    width: max-content;
+    margin-top: 1rem;
+    border-radius: 5px;
+}
+
+.noPageWrapper h1{
+    text-align: left;
+}
+
 body{
     background-color: rgb(247, 246, 245);
     overflow: hidden;
@@ -165,10 +189,42 @@ div.addPerson{
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
+}
+
+#friendRequestOption{
+    position: relative;
+}
+
+.notificationBubble::after{
+    content: attr(data-friendrequest);
+    width: clamp(15px, 1rem,max-content);
+    height: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: .1rem;
+    color: white;
+    position: absolute;
+    background-color: red;
+    font-size: .7rem;
+    top: -8px;
+    right: -8px;
+    border-radius: 10px;
 }
 
 i{
     font-size: .7rem;
+}
+
+
+
+.sendBtn{
+    color: white;
+    background-color: rgb(38, 98, 154);
+    border: none;
+    padding: 6px;
+    border-radius: 5px;
 }
 
 
@@ -250,6 +306,10 @@ button.textAddBtn{
     border: none;
 }
 
+.backToSignIn{
+    margin-top: 1rem;
+}
+
 
 div.leftBtns{
     display: grid;
@@ -258,6 +318,7 @@ div.leftBtns{
     position: relative;
     transition: width 250ms;
     transition-timing-function: ease-in-out;
+
 }
 
 div.rightBtns{
@@ -280,17 +341,80 @@ div.currentLeft{
     align-items: center;
 }
 
-div.textContainer{
+pre.textContainer{
     background-color: aliceblue;
     width: max-content;
-    padding: 1px 5px;
-    border-radius: 25px;
+    padding: 5px;
+    border-radius: 7px;
 }
 
-div.textContainer.me{
+#imageInput{
+    display: none;
+}
+
+.imageArea{
+    display: flex;
+    max-height: 200px;
+    flex-wrap: wrap;
+    overflow-y: auto;
+    gap: 1rem;
+    padding: 2rem;
+    padding-bottom: 3rem;
+    position: relative;
+}
+
+.imageToSendContainer{
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
+    position: relative;
+}
+
+.imageToSendContainer img{
+    height: 100%;
+    width: 100%;
+    border-radius: 10px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.removeImage{
+    background-color: white;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    padding-bottom: .4rem;
+    right: -5px;
+    top: -5px;
+    z-index: 4;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    color: red;
+}
+
+pre.textContainer.me{
     background-color: rgb(41, 69, 124);
     color: white;
 }
+
+p.instruction{
+    background-color: black;
+    color: white;
+    text-align: left;
+    font-size: 13px;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.off{
+    display: none;
+}
+
 
 div.textWrapper:not(:first-child){
     margin: 1rem 0;
@@ -301,11 +425,30 @@ div.textWrapper.me{
     justify-content: flex-end;
 }
 
+div.textWrapper img{
+    height: 200px;
+    width: 150px;
+    border-radius: 10px;
+}
+
 div.messageAreaContainer{
     height: 70%;
     padding: 1rem 1rem 0 1rem;
-    overflow-y: scroll;
+    overflow-y: auto;
     scrollbar-gutter:stable;
+
+    position: relative;
+}
+
+.emojiBtn{
+    position: relative;
+
+}
+
+.leftBtns .chatBtns aside{
+    position: fixed;
+    bottom: 3rem;
+
 }
 
 div.overflow{
@@ -445,6 +588,8 @@ div.modalBtns button[type='button']{
     cursor: pointer;
 }
 
+
+
 ul{
     list-style-type: none;
 }
@@ -529,9 +674,9 @@ button[type="submit"]:disabled{
 
 
 @media screen and (min-width: 550px ) {
-
-    form{
+    .formContainer{
         width: 50%;
+        margin: auto;
     }
 
 }

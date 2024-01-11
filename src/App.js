@@ -9,11 +9,12 @@ import ConfirmReset from "./confirmreset";
 import Home from "./components/Home";
 import { socket } from "./socket";
 import Header from "./components/Header";
+import NoPage from "./components/NoPage";
 
 export default function App(){
-  const [contacts, setUserContacts] = useState([])
-  const [friend_requests, setFriendRequests] = useState([])
-  const [messages, setMessages] = useState([]);
+  const [contacts, setUserContacts] = useState([]) // delete contact
+  const [friend_requests, setFriendRequests] = useState([])  // delete friend
+  const [messages, setMessages] = useState([]); // delete message after
   const [submitNewUserForm, setSubmitNewUserForm] = useState(false);
 
   useEffect(()=>{
@@ -76,8 +77,9 @@ export default function App(){
         <Route path='/' element={<LoginForm setUserFriendRequest={setUserFriendRequests}></LoginForm>}></Route>
         <Route path='/register' element={<Register submitedForm={changeSubmitNewUserForm}></Register>}></Route>
         <Route path='/forgot' element={<ResetPassword></ResetPassword>}></Route>
-        <Route path='/home' element={<Home setContacts={setcontacts} contacts={contacts} addContact={updateContacts} socket={socket} friendRequests={friend_requests} setUserFriendRequests={setUserFriendRequests} messages={messages} setCurrentMessage={setCurrentMessage}></Home>}></Route>
+        <Route path='/home' element={<Home setContacts={setcontacts} contacts={contacts} addContact={updateContacts} socket={socket} friendRequests={friend_requests} setUserFriendRequests={setUserFriendRequests} messages={messages} setCurrentMessage={setCurrentMessage} numberOfFriendRequest={friend_requests.length}></Home>}></Route>
         <Route path='/newuser/confirm' element={<Confirm formSubmit={submitNewUserForm}></Confirm>}></Route>
+        <Route path="*" element={<NoPage></NoPage>}></Route>
       </Routes>
     </>
       

@@ -1,5 +1,5 @@
 import profilepic from './img/nonprofile.png'
-export default function CurrentTalk({hideChat, openModal, currentChat}){
+export default function CurrentTalk({hideChat, openModal, currentChat, numberOfFriendRequest}){
     return(
         <div className='currentTalk'>
             <div className='currentLeft'>
@@ -15,7 +15,7 @@ export default function CurrentTalk({hideChat, openModal, currentChat}){
                 
             </div>
             
-            <div className='addPerson' onClick={openModal}>
+            <div className={`addPerson${numberOfFriendRequest > 0 ? " notificationBubble" : ""}`} onClick={openModal} data-friendrequest={numberOfFriendRequest}>
                 <i className="fa-solid fa-user-plus"></i>
             </div>
         </div>
